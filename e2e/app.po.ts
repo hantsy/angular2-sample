@@ -1,9 +1,9 @@
-export class Angular2SamplePage {
+export class Ng2HelloPage {
   navigateTo() {
     return browser.get('/');
   }
 
   getParagraphText() {
-    return element(by.css('angular2-sample-app h1')).getText();
+    return element(by.css('app-root h1')).getText();
   }
 }

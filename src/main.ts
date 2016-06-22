@@ -1,10 +1,15 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
+import { provideRouter } from '@angular/router';
+
 import { enableProdMode } from '@angular/core';
-import { Angular2SampleAppComponent, environment } from './app/';
+import { AppComponent, environment } from './app/';
+import {AppRoutes} from './app/app.routes';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(Angular2SampleAppComponent);
+bootstrap(AppComponent, [
+  provideRouter(AppRoutes)
+]);
 
