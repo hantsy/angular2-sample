@@ -7,11 +7,35 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+  '@angular2-material': 'vendor/@angular2-material'
 };
 
 /** User packages configuration. */
 const packages: any = {
 };
+
+// put the names of any of your Material components here
+const materialPkgs: string[] = [
+  'core',
+  'button',
+  'card',
+  'toolbar',
+  'icon',
+  'list',
+  'tabs',
+  'input',
+  'radio',
+  'checkbox',
+  'grid-list',
+  'progress-bar',
+  'progress-circle',
+  'sidenav',
+  'slide-toggle'
+];
+
+materialPkgs.forEach((pkg) => {
+  packages[`@angular2-material/${pkg}`] = { main: `${pkg}.js` };
+});
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************

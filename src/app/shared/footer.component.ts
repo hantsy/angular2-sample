@@ -7,5 +7,5 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   template: '<hr><div>{{copyright}}</div>'
 })
 export class FooterComponent {
-  copyright = 'Hantsy';
+  copyright = 'Copyright 2016 @ Hantsy';
 }
