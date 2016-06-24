@@ -20,7 +20,7 @@ const materialPkgs: string[] = [
   'button',
   'card',
   'toolbar',
-  'icon',
+ // 'icon', https://github.com/angular/material2/issues/753
   'list',
   'tabs',
   'input',
