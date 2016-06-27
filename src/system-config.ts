@@ -44,6 +44,7 @@ materialPkgs.forEach((pkg) => {
 const barrels: string[] = [
   // Angular specific barrels.
   '@angular/core',
+  '@angular/forms',
   '@angular/common',
   '@angular/compiler',
   '@angular/http',
@@ -56,9 +57,11 @@ const barrels: string[] = [
 
   // App specific barrels.
   'app',
-  'app/shared',
+  //'app/service',
   'app/posts',
+ //'app/model',
   'app/profile',
+  'app/shared',
   /** @cli-barrel */
 ];
 
