@@ -1,4 +1,8 @@
 {
+  "resolution": {
+    "main": "typings/main",
+    "browser": "typings/browser"
+  },
   "globalDevDependencies": {
     "angular-protractor": "registry:dt/angular-protractor#1.5.0+20160425143459",
     "jasmine": "registry:dt/jasmine#2.2.0+20160412134438",

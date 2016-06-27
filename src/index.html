@@ -3,13 +3,25 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Ng2Hello</title>
-    <base href="/">
+    <title>Angular2 Sample</title>
+    <base href="/"> 
     {{#unless environment.production}}
     <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
     {{/unless}}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Service worker support is disabled by default.
+       Install the worker script and uncomment to enable.
+       Only enable service workers in production.
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/worker.js').catch(function(err) {
+        console.log('Error installing service worker: ', err);
+      });
+    }
+  </script>
+  -->
 </head>
 
 <body>
