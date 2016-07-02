@@ -8,8 +8,8 @@ import {MD_LIST_DIRECTIVES} from '@angular2-material/list';
 import {MD_CARD_DIRECTIVES} from '@angular2-material/card';
 import {MdInput} from '@angular2-material/input';
 import {MdCheckbox} from '@angular2-material/checkbox';
-import {MdRadioButton, MdRadioGroup, MdRadioDispatcher} from '@angular2-material/radio';
-//import {MdIcon, MdIconRegistry} from '@angular2-material/icon';//
+import {MdRadioButton, MdRadioGroup} from '@angular2-material/radio';
+import {MdIcon, MdIconRegistry} from '@angular2-material/icon';//
 
 @Component({
   moduleId: module.id,
@@ -28,10 +28,10 @@ import {MdRadioButton, MdRadioGroup, MdRadioDispatcher} from '@angular2-material
     MdInput,
     MdCheckbox,
     MdRadioGroup,
-    MdRadioButton//,
-    // MdIcon
+    MdRadioButton,
+    MdIcon
   ],
-  providers: [/*MdIconRegistry, */ MdRadioDispatcher]
+  providers: [MdIconRegistry]
 })
 export class AppComponent {
   title = 'app works!';
