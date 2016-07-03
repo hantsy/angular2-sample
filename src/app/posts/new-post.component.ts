@@ -23,8 +23,12 @@ export class NewPostComponent implements OnInit {
   public save(form: PostForm, isValid: boolean) {
     console.log(form, isValid);
     if (isValid) {
-      this.postService.save(form);
-      this.router.navigateByUrl('/');
+      this.postService.save(form)
+        .subscribe(
+          (res) => {
+            this.router.navigateByUrl('/');
+          }
+        );
     }
   }
 

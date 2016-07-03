@@ -12,7 +12,7 @@ import {
 
 import { NewPostComponent } from './new-post.component';
 
-describe('Component: NewPost', () => {
+xdescribe('Component: NewPost', () => {
   it('should create an instance', () => {
     //let component = new NewPostComponent();
     //expect(component).toBeTruthy();

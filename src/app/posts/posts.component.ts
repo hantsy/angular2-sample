@@ -9,16 +9,20 @@ import {PostService} from '../service/post.service';
   templateUrl: 'posts.component.html',
   styleUrls: ['posts.component.css'],
   directives: [ROUTER_DIRECTIVES],
-  providers:[PostService]
+  providers: [PostService]
 })
 export class PostsComponent implements OnInit {
 
   posts: Post[];
 
-  constructor( public postService:PostService) { }
+  constructor(public postService: PostService) { }
 
   ngOnInit() {
-    this.posts = this.postService.getPosts();
+    this.postService.getPosts().subscribe(
+      (data) => this.posts = data,
+      (err) => console.log(err),
+      () => console.log('done')
+    );
   }
 
 }

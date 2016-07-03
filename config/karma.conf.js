@@ -7,7 +7,8 @@ module.exports = function (config) {
     frameworks: ['jasmine'],
     plugins: [
       require('karma-jasmine'),
-      require('karma-chrome-launcher')
+      require('karma-chrome-launcher'),
+      require('karma-mocha-reporter')
     ],
     customLaunchers: {
       // chrome setup for travis CI using chromium
@@ -35,7 +36,7 @@ module.exports = function (config) {
       'dist/vendor/**/*.spec.js'
     ],
     preprocessors: {},
-    reporters: ['progress'],
+    reporters: ['progress', 'mocha'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,

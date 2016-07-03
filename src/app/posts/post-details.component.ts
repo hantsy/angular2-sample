@@ -18,15 +18,15 @@ export class PostDetailsComponent implements OnInit {
   constructor(public route:ActivatedRoute, public postService:PostService) {}
 
   ngOnInit() {
-  //  this.route.params
-  //     .map(params => params['id'])
-  //     .subscribe((id) => {
-  //       this.postService
-  //         .getPost(id)
-  //         .subscribe(post => this.post = post);
-  //     });
+   this.route.params
+      .map(params => params['id'])
+      .subscribe((id) => {
+        this.postService
+          .getPost(id)
+          .subscribe(post => this.post = post);
+      });
 
-  this.post= this.postService.getPost(this.route.snapshot.params['id']);
+  //this.post= this.postService.getPost(this.route.snapshot.params['id']);
   }
 
 }

@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import {Post} from '../model/post.model';
 import {PostForm} from '../model/post-form.model';
+import {Http, Response, RequestOptions} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class PostService {
-  nextId: number = 100;
-  posts: Post[] = [
-    { id: 1, title: 'Fist Post ', content: 'Content of First Post' },
-    { id: 2, title: 'Second Post ', content: 'Content of Second Post' },
-    { id: 3, title: 'Third Post ', content: 'Content of Third Post' }
-  ];
+  private POST_URL: string = '/api/posts/';
 
-  constructor() { }
+  constructor(private http: Http) { }
 
-  getPosts(): Post[] {
-    return this.posts;
+  getPosts() {
+    return this.http.get(this.POST_URL)
+      .map((res: Response) => res.json());
   }
 
-  getPost(id: number): Post {
-    return this.posts.find(post => post.id === id);
+  getPost(id: number){
+    return this.http.get(this.POST_URL + id)
+      .map(res => res.json());
   }
 
-  save(data: PostForm) {
-    this.posts.push({ id: this.nextId++, title: data.title, content: data.content });
+  save(data: PostForm){
+    return this.http.post(this.POST_URL, data);
   }
 
-  update(id: number, data: PostForm) {
-    this.posts
-      .filter((post) => post.id === id)
-      .map(p => { p.title = data.title; p.content = data.content; });
+  update(id: number, data: PostForm){
+    return this.http.put(this.POST_URL + id, data);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.POST_URL + id);
   }
 }
