@@ -1,10 +1,10 @@
-import { PostsComponent, NewPostComponent, PostDetailsComponent, EditPostComponent } from './posts/';
-import { ProfileComponent } from './profile/';
+import { RouterConfig } from '@angular/router';
+import { postsRoutes } from './posts/posts.routes';
+import { profileRoutes } from './profile/profile.routes';
+import { loginRoutes } from './login/login.routes';
 
-export const AppRoutes = [
-      { path: '', component: PostsComponent },
-      { path: 'posts/:id/details', component: PostDetailsComponent },
-      { path: 'posts/:id/edit', component: EditPostComponent },
-      { path: 'posts/new', component: NewPostComponent },
-      { path: 'profile', component: ProfileComponent }
+export const appRoutes:RouterConfig = [
+  ...postsRoutes,
+  ...profileRoutes,
+  ...loginRoutes
 ];

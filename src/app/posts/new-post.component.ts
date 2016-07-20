@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
-import { PostForm } from '../model/post-form.model';
-import { PostService } from '../service/post.service';
+import { PostForm } from '../shared/model/post-form.model';
+import { PostService } from '../shared/service/post.service';
 
 @Component({
   moduleId: module.id,
