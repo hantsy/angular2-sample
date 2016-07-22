@@ -11,7 +11,7 @@
   <div>
     <label>Content</label>
     <textarea rows="5" cols="50" [(ngModel)]="post.content" name="name" #content="ngModel" required minlength="10"></textarea>
-    <small [hidden]="content.valid || (content.pristine && !f.sucontentbmitted)">
+    <small [hidden]="content.valid || (content.pristine && !f.submitted)">
      Content is required (minimum 10 characters).
    </small>
   </div>
@@ -23,6 +23,6 @@
   </div>-->
 
   <button type="submit" (click)="save(f.value, f.valid)">
-   Submit
+   Save
   </button>
 </form>

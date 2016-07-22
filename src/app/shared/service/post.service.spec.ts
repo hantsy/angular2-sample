@@ -53,6 +53,8 @@ console.log(JSON.stringify(posts));
 */
 
 describe('Post Service', () => {
+
+  //run before each test
   beforeEach(() => {
     addProviders([
       BaseRequestOptions,
@@ -67,7 +69,7 @@ describe('Post Service', () => {
   });
 
   it('get all posts',
-    fakeAsync(inject([PostService, MockBackend], (postService, mockBackend) => {
+    inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/');
@@ -86,7 +88,7 @@ describe('Post Service', () => {
 
 
   it('get post by id',
-    fakeAsync(inject([PostService, MockBackend], (postService, mockBackend) => {
+    inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/1');
@@ -103,9 +105,32 @@ describe('Post Service', () => {
     }))
   );
 
+  // it('get post by id not found shoud return 404',
+  //   inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
+  //     var res;
+  //     var err;
+  //     mockBackend.connections.subscribe(c => {
+  //       expect(c.request.url).toBe('/api/posts/1');
+  //       let response = new ResponseOptions({ status: 404 });
+  //       c.mockRespond(new Response(response));
+  //     });
+  //     postService.getPost(1).subscribe(
+  //       (response) => {
+  //         res = response;
+  //       },
+  //       (error) => {
+  //         err = error;
+  //       }
+  //     );
+  //     tick(1000);
+  //     console.log(err);
+  //     expect(err.status).toBe(404);
+  //   }))
+  // );
+
 
   it('save post',
-    fakeAsync(inject([PostService, MockBackend], (postService, mockBackend) => {
+    inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/');
@@ -124,7 +149,7 @@ describe('Post Service', () => {
   );
 
   it('update post',
-    fakeAsync(inject([PostService, MockBackend], (postService, mockBackend) => {
+    inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/1');
@@ -141,7 +166,7 @@ describe('Post Service', () => {
   );
 
   it('delete post by id',
-    fakeAsync(inject([PostService, MockBackend], (postService, mockBackend) => {
+    inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
       var res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/1');
