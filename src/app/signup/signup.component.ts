@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { AuthService } from '../shared/service/auth.service';
-import { LoginForm} from '../shared/model/login-form.model';
+import { SignupForm} from '../shared/model/signup-form.model';
 
 @Component({
   moduleId: module.id,
-  selector: 'app-login',
-  templateUrl: 'login.component.html',
-  styleUrls: ['login.component.css'],
+  selector: 'app-signup',
+  templateUrl: 'signup.component.html',
+  styleUrls: ['signup.component.css'],
   directives: [ROUTER_DIRECTIVES]
 })
-export class LoginComponent implements OnInit {
-  credentials: LoginForm;
+export class SignupComponent implements OnInit {
+  private signupForm: SignupForm;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.credentials = new LoginForm();
+    this.signupForm = new SignupForm();
   }
 
-  login(credentials: LoginForm) {
-    this.authService.login(credentials);
+
+  signup(signupForm: SignupForm) {
+    this.authService.login(signupForm);
     this.router.navigateByUrl('/');
   }
 
