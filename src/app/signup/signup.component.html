@@ -2,16 +2,16 @@
   <!-- form control here -->
   <div>
     <label>Firstname</label>
-    <input type="text" [(ngModel)]="signupForm.firstname" name="firstname" #firstname="ngModel" required minlength="5">
+    <input type="text" [(ngModel)]="signupForm.firstname" name="firstname" #firstname="ngModel" required minlength="1">
     <small [hidden]="firstname.valid || (firstname.pristine && !f.submitted)">
-     Firstname is required (minimum 5 characters).
+     Firstname is required.
    </small>
   </div>
   <div>
     <label>Lastname</label>
-    <input type="text" [(ngModel)]="signupForm.lastname" name="lastname" #lastname="ngModel" required minlength="5">
+    <input type="text" [(ngModel)]="signupForm.lastname" name="lastname" #lastname="ngModel" required minlength="1">
     <small [hidden]="lastname.valid || (lastname.pristine && !f.submitted)">
-     Lastname is required (minimum 5 characters).
+     Lastname is required.
    </small>
   </div>
 
@@ -33,7 +33,7 @@
 
   </div>
   <button type="submit" (click)="signup(f.value, f.valid)">
-   Login
+   SIGNUP
   </button>
-  <a [routerLink]="['/login']">Login</a>
+  <a [routerLink]="['/login']">LOGIN</a>
 </form>

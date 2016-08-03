@@ -36,6 +36,9 @@ export class AuthService {
       (res: Response) => {
         console.log('signup successfully!');
         //this.login({ username: userForm.username, password: userForm.password });
+        if (res.status === 201) {
+          return true;
+        }
       },
       (error) => {
         console.log('signup failed.');
