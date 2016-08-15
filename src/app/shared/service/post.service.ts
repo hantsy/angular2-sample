@@ -11,13 +11,11 @@ export class PostService {
   constructor(private http: Http) { }
 
   getPosts() {
-    return this.http.get(this.POST_URL)
-      .map((res: Response) => res.json());
+    return this.http.get(this.POST_URL);
   }
 
   getPost(id: number){
-    return this.http.get(this.POST_URL + id)
-      .map(res => res.json());
+    return this.http.get(this.POST_URL + id);
   }
 
   save(data: PostForm){

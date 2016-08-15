@@ -77,7 +77,7 @@ describe('Post Service', () => {
         c.mockRespond(new Response(response));
       });
       postService.getPosts().subscribe((response) => {
-        res = response;
+        res = response.json();
       });
       tick(1000);
 
@@ -96,7 +96,7 @@ describe('Post Service', () => {
         c.mockRespond(new Response(response));
       });
       postService.getPost(1).subscribe((response) => {
-        res = response;
+        res = response.json();
       });
       tick(1000);
 
