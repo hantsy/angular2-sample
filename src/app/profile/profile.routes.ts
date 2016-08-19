@@ -14,3 +14,5 @@ export const profileRoutes: RouterConfig = [
     ]
   }
 ];
+
+//export const profileRouting=RouterModule.forChild(profileRoutes);

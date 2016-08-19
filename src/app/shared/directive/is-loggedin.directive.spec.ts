@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { addProviders, async, inject, describe, it } from '@angular/core/testing';
+import { async, inject } from '@angular/core/testing';
 import { IsLoggedin } from './is-loggedin.directive';
 
 describe('Directive: IsLoggedin', () => {

@@ -27,8 +27,9 @@ export class EditPostComponent implements OnInit {
         this.postService
           .getPost(id)
           .subscribe(p => {
-            this.post.title = p.title;
-            this.post.content = p.content;
+            let  data =p.json();
+            this.post.title = data.title;
+            this.post.content = data.content;
           });
       });
 

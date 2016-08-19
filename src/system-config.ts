@@ -7,34 +7,39 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  '@angular2-material': 'vendor/@angular2-material'
+  '@angular2-material': 'vendor/@angular2-material',
 };
 
-/** User packages configuration. */
-const packages: any = {
-};
-
-// put the names of any of your Material components here
-const materialPkgs: string[] = [
-  'core',
+const materialComponents = [
   'button',
   'card',
-  'toolbar',
-  'icon',
-  'list',
-  'tabs',
-  'input',
-  'radio',
+  'core',
   'checkbox',
   'grid-list',
+  'icon',
+  'input',
+  'list',
+  'menu',
   'progress-bar',
   'progress-circle',
+  'radio',
   'sidenav',
-  'slide-toggle'
+  'slider',
+  'slide-toggle',
+  'button-toggle',
+  'tabs',
+  'toolbar',
+  'tooltip',
 ];
 
-materialPkgs.forEach((pkg) => {
-  packages[`@angular2-material/${pkg}`] = { main: `${pkg}.js` };
+
+let packages = {};
+materialComponents.forEach(name => {
+  packages[`@angular2-material/${name}`] = {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: `${name}.js`,
+  };
 });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -44,9 +49,9 @@ materialPkgs.forEach((pkg) => {
 const barrels: string[] = [
   // Angular specific barrels.
   '@angular/core',
-  '@angular/forms',
   '@angular/common',
   '@angular/compiler',
+  '@angular/forms',
   '@angular/http',
   '@angular/router',
   '@angular/platform-browser',
