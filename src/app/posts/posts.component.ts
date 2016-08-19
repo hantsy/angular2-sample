@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
-import {Post} from '../shared/model/post.model';
-import {PostService} from '../shared/service/post.service';
+import {Post} from './shared/model/post.model';
+import {PostService} from './shared/service/post.service';
 import {Subscription} from 'rxjs/Rx';
 
 @Component({

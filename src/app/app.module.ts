@@ -31,11 +31,15 @@ import {RtlModule} from '@angular2-material/core/rtl/dir';
 import {appRouting, appRoutingProviders} from './app.routing';
 import { HeaderComponent, FooterComponent} from './layout/';
 import {AppComponent} from './app.component';
+import {ProfileModule} from './profile/profile.module';
+import {PostsModule} from './posts/posts.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
+    PostsModule,
+    ProfileModule,
     appRouting,//RouterModule.forRoot(appRoutes),
     MdButtonModule,
     MdButtonToggleModule,

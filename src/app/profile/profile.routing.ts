@@ -2,7 +2,9 @@ import { ProfileComponent } from './profile.component';
 import { UpdatePasswordComponent } from './update-password.component';
 import { UpdateProfileComponent } from './update-profile.component';
 
-import {RouterConfig} from '@angular/router';
+import {RouterConfig, RouterModule} from '@angular/router';
+
+import { ProfileService} from './shared/service/profile.service';
 
 export const profileRoutes: RouterConfig = [
   {
@@ -15,4 +17,5 @@ export const profileRoutes: RouterConfig = [
   }
 ];
 
-//export const profileRouting=RouterModule.forChild(profileRoutes);
+export const profileRouting = RouterModule.forChild(profileRoutes);
+export const profileRoutingProviders = [ProfileService];
