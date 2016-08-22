@@ -1,18 +1,27 @@
 /* tslint:disable:no-unused-variable */
+/// <reference path="../../../typings/globals/jasmine/index.d.ts"/>
+
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
 
 import { By }           from '@angular/platform-browser';
 import { DebugElement, provide, Component } from '@angular/core';
 import {
   async, inject,
   TestComponentBuilder,
-  ComponentFixture
+  ComponentFixture,
+  TestBed
 } from '@angular/core/testing';
 
 import { PostsComponent } from './posts.component';
 import { Injectable } from '@angular/core';
-import {Post} from '../shared/model/post.model';
-import {PostForm} from '../shared/model/post-form.model';
-import {PostService} from '../shared/service/post.service';
+import { FormsModule } from '@angular/forms';
+import { HttpModule, ResponseOptions } from '@angular/http';
+import {Post} from './shared/model/post.model';
+import {PostForm} from './shared/model/post-form.model';
+import {PostService} from './shared/service/post.service';
 import {Observable} from 'rxjs/Rx';
 
 class MockPostService {
@@ -25,7 +34,9 @@ class MockPostService {
 
   constructor() { }
   getPosts() {
-    return Observable.of(this.posts);
+    let res = new ResponseOptions();
+    res.body = JSON.stringify(this.posts);
+    return Observable.of(res);
   }
 
   // getPost(id: number) {
@@ -44,42 +55,57 @@ class MockPostService {
 }
 
 @Component({
-  template: '',
+  template: '<app-posts></app-posts>',
   directives: [PostsComponent]
 })
 export class TestComponent {
 }
 
+// TestBed.initTestEnvironment(
+//   BrowserDynamicTestingModule,
+//   platformBrowserDynamicTesting()
+// );
+
 describe('Component: Posts', () => {
-  // beforeEach(() => {
-  //   addProviders([
-  //     provide(PostService, { useClass: MockPostService })
-  //   ]);
-  // });
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [PostsComponent],
+      providers: [
+        provide(PostService, { useClass: MockPostService })
+      ],
+      imports: [FormsModule, HttpModule]
+    })
+  });
 
-  // it('should create an instance', async(inject([PostService], (service) => {
-  //   let component = new PostsComponent(service);
-  //   expect(component).toBeTruthy();
-  // }))
-  // );
+  it('should create an instance',
+    async(
+      inject([PostService], (service) => {
+        let component = new PostsComponent(service);
+        expect(component).toBeTruthy();
+      })
+    )
+  );
 
-  // it('ngOnInit should return 3 posts',
-  //   inject([PostService], (service) => {
-  //     let component = new PostsComponent(service);
-  //     component.ngOnInit();
-  //     expect(component.posts.length).toBe(3);
-  //   })
-  // );
+  it('ngOnInit should return 3 posts',
+    inject([PostService], (service) => {
+      let component = new PostsComponent(service);
+      component.ngOnInit();
+      expect(component.posts.length).toBe(3);
+    })
+  );
 
-  // it('should wrap content', async(inject([TestComponentBuilder], (tcb) => {
-  //   tcb.overrideTemplate(TestComponent, '<app-posts></app-posts>')
-  //     .createAsync(TestComponent).then((fixture: ComponentFixture<TestComponent>) => {
-  //       fixture.detectChanges();
-  //       var compiled = fixture.debugElement.nativeElement;
-  //       console.log('compiled app posts components:'+compiled);
-  //       expect(compiled).toContainText('123');
-  //     });
-  // })));
+  it("should wrap content", () => {
+    TestBed.configureTestingModule({
+      declarations: [TestComponent]
+    });
+
+    let fixture = TestBed.createComponent(TestComponent);
+    fixture.detectChanges();
+
+    let compiled = fixture.debugElement.nativeElement;
+
+    expect(compiled.innerText).toContain("posts works!");
+  });
 });
 
 

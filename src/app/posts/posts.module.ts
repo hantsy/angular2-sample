@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  imports: [CommonModule,FormsModule, postsRouting],
+  imports: [CommonModule, FormsModule, postsRouting],
   declarations: [PostsComponent, PostDetailsComponent, NewPostComponent, EditPostComponent],
   providers: [...postsRoutingProviders]
 })

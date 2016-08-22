@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Post} from '../model/post.model';
-import {PostForm} from '../model/post-form.model';
-import {Http, Response, RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs/Rx';
+import { Post } from '../model/post.model';
+import { PostForm } from '../model/post-form.model';
+import { Http, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class PostService {

@@ -4,7 +4,7 @@ import { RouterConfig, RouterModule } from '@angular/router';
 import { loginRoutes } from './login/login.routes';
 import { signupRoutes } from './signup/signup.routes';
 
-import {AuthService, PostService} from './shared/service/index';
+import { AuthService } from './shared/service/index';
 
 export const appRoutes: RouterConfig = [
   { path: '', pathMatch: 'full', redirectTo: '/posts/home' },
