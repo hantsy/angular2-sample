@@ -8,8 +8,6 @@ import { PostService } from './shared/service/post.service';
   selector: 'app-edit-post',
   templateUrl: 'edit-post.component.html',
   styleUrls: ['edit-post.component.css'],
-  directives: [ROUTER_DIRECTIVES],
-  providers: [PostService]
 })
 export class EditPostComponent implements OnInit {
 

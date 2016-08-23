@@ -1,5 +1,4 @@
 /* tslint:disable:no-unused-variable */
-/// <reference path="../../../typings/globals/jasmine/index.d.ts"/>
 
 import {
   BrowserDynamicTestingModule,
@@ -61,10 +60,10 @@ class MockPostService {
 export class TestComponent {
 }
 
-// TestBed.initTestEnvironment(
-//   BrowserDynamicTestingModule,
-//   platformBrowserDynamicTesting()
-// );
+TestBed.initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
 
 describe('Component: Posts', () => {
   beforeEach(() => {
@@ -74,7 +73,7 @@ describe('Component: Posts', () => {
         provide(PostService, { useClass: MockPostService })
       ],
       imports: [FormsModule, HttpModule]
-    })
+    });
   });
 
   it('should create an instance',
@@ -94,7 +93,7 @@ describe('Component: Posts', () => {
     })
   );
 
-  it("should wrap content", () => {
+  it('should wrap content', () => {
     TestBed.configureTestingModule({
       declarations: [TestComponent]
     });
@@ -104,7 +103,7 @@ describe('Component: Posts', () => {
 
     let compiled = fixture.debugElement.nativeElement;
 
-    expect(compiled.innerText).toContain("posts works!");
+    expect(compiled.innerText).toContain('posts works!');
   });
 });
 

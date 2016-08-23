@@ -8,9 +8,7 @@ import { Subscription } from 'rxjs/Rx';
   moduleId: module.id,
   selector: 'app-post-details',
   templateUrl: 'post-details.component.html',
-  styleUrls: ['post-details.component.css'],
-  directives: [ROUTER_DIRECTIVES],
-  providers:[PostService]
+  styleUrls: ['post-details.component.css']
 })
 export class PostDetailsComponent implements OnInit , OnDestroy{
 

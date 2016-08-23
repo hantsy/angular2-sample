@@ -1,5 +1,4 @@
 /* tslint:disable:no-unused-variable */
-/// <reference path="../../../../../typings/globals/jasmine/index.d.ts"/>
 import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
@@ -27,7 +26,7 @@ import { PostService } from './post.service';
 
 import {Post} from '../model/post.model';
 
-var posts = [
+const posts = [
   { id: 1, title: 'Fist Post', content: 'Content of First Post' },
   { id: 2, title: 'Second Post', content: 'Content of Second Post' },
   { id: 3, title: 'Third Post', content: 'Content of Third Post' }
@@ -58,30 +57,32 @@ console.log(JSON.stringify(posts));
     * });
 */
 
-// TestBed.initTestEnvironment(
-//   BrowserDynamicTestingModule,
-//   platformBrowserDynamicTesting()
-// );
+TestBed.initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
 
-describe('Post Service', () => {
+describe('Post Service:', () => {
 
   // //run before each test
   beforeEach(() => {
-    TestBed.configureTestingModule({providers: [
-      BaseRequestOptions,
-      MockBackend,
-      PostService,
-      provide(Http, {
-        useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
-          return new Http(backend, defaultOptions);
-        }, deps: [MockBackend, BaseRequestOptions]
-      })
-    ]});
+    TestBed.configureTestingModule({
+      providers: [
+        BaseRequestOptions,
+        MockBackend,
+        PostService,
+        provide(Http, {
+          useFactory: (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) => {
+            return new Http(backend, defaultOptions);
+          }, deps: [MockBackend, BaseRequestOptions]
+        })
+      ]
+    });
   });
 
   it('get all posts',
     inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
-      var res;
+      let res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/');
         let response = new ResponseOptions({ body: JSON.stringify(posts) });
@@ -100,7 +101,7 @@ describe('Post Service', () => {
 
   it('get post by id',
     inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
-      var res;
+      let res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/1');
         let response = new ResponseOptions({ body: JSON.stringify(posts[0]) });
@@ -142,7 +143,7 @@ describe('Post Service', () => {
 
   it('save post',
     inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
-      var res;
+      let res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/');
         let headers = new Headers();
@@ -161,7 +162,7 @@ describe('Post Service', () => {
 
   it('update post',
     inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
-      var res;
+      let res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/1');
         let response = new ResponseOptions({ status: 204 });
@@ -178,7 +179,7 @@ describe('Post Service', () => {
 
   it('delete post by id',
     inject([PostService, MockBackend], fakeAsync((postService, mockBackend) => {
-      var res;
+      let res;
       mockBackend.connections.subscribe(c => {
         expect(c.request.url).toBe('/api/posts/1');
         let response = new ResponseOptions({ status: 204 });

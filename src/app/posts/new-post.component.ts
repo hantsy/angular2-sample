@@ -8,8 +8,6 @@ import { PostService } from './shared/service/post.service';
   selector: 'app-new-post',
   templateUrl: 'new-post.component.html',
   styleUrls: ['new-post.component.css'],
-  directives: [ROUTER_DIRECTIVES],
-  providers: [PostService]
 })
 export class NewPostComponent implements OnInit {
   post: PostForm;

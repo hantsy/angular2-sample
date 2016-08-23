@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import {ROUTER_DIRECTIVES} from '@angular/router';
 import {Post} from './shared/model/post.model';
 import {PostService} from './shared/service/post.service';
@@ -8,9 +8,7 @@ import {Subscription} from 'rxjs/Rx';
   moduleId: module.id,
   selector: 'app-posts',
   templateUrl: 'posts.component.html',
-  styleUrls: ['posts.component.css'],
-  directives: [ROUTER_DIRECTIVES],
-  providers: [PostService]
+  styleUrls: ['posts.component.css']
 })
 export class PostsComponent implements OnInit, OnDestroy {
 

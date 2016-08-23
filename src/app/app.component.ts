@@ -10,15 +10,6 @@ import { HeaderComponent, FooterComponent} from './layout/';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives: [
-    ROUTER_DIRECTIVES,
-    HeaderComponent,
-    FooterComponent,
-    MD_SIDENAV_DIRECTIVES,
-    MD_CARD_DIRECTIVES,
-    MD_CARD_DIRECTIVES
-  ],
-  providers: []
 })
 export class AppComponent {
   title = 'app works!';
