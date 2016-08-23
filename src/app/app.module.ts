@@ -69,10 +69,10 @@ import {PostsModule} from './posts/posts.module';
   entryComponents: [AppComponent]
 })
 export class AppModule {
-  constructor(private _appRef: ApplicationRef) { }
-
-  ngDoBootstrap() {
-    this._appRef.bootstrap(AppComponent);
-  }
+//  constructor(private _appRef: ApplicationRef) { }
+//
+//  ngDoBootstrap() {
+//    this._appRef.bootstrap(AppComponent);
+//  }
 }
 
