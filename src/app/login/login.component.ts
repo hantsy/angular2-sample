@@ -4,7 +4,7 @@ import { AuthService } from '../shared/service/auth.service';
 import { LoginForm} from '../shared/model/login-form.model';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'app-login',
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css'],

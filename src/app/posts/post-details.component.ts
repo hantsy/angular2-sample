@@ -5,7 +5,7 @@ import { PostService } from './shared/service/post.service';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'app-post-details',
   templateUrl: 'post-details.component.html',
   styleUrls: ['post-details.component.css']

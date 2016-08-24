@@ -6,7 +6,7 @@ import {provideRouter, ROUTER_DIRECTIVES} from '@angular/router';
 import { HeaderComponent, FooterComponent} from './layout/';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],

@@ -4,7 +4,7 @@ import { AuthService } from '../shared/service/auth.service';
 import { SignupForm} from '../shared/model/signup-form.model';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'app-signup',
   templateUrl: 'signup.component.html',
   styleUrls: ['signup.component.css'],

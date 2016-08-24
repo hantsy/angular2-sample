@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'app-update-password',
   templateUrl: 'update-password.component.html',
   styleUrls: ['update-password.component.css']

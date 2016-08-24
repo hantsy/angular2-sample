@@ -4,7 +4,7 @@ import { PostForm } from './shared/model/post-form.model';
 import { PostService } from './shared/service/post.service';
 
 @Component({
-  moduleId: module.id,
+  //moduleId: module.id,
   selector: 'app-new-post',
   templateUrl: 'new-post.component.html',
   styleUrls: ['new-post.component.css'],
