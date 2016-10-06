@@ -1,0 +1,29 @@
+<nav class="navbar navbar-fixed-top navbar-light bg-faded">
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/home']" ><i class="fa fa-home"></i>ANGULAR2 SAMPLE</a>
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" aria-controls="exCollapsingNavbar2"
+      aria-expanded="false" aria-label="Toggle navigation">
+    &#9776;
+  </button>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+    <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar">
+      <ul class="nav navbar-nav">
+        <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/posts']"  >{{'posts'}}</a></li>
+        <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/posts', 'new']"  >{{'new-post'}}</a></li>
+        <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/about']"  >{{'about'}}</a></li>
+      </ul>
+
+      <!--<ul class="nav navbar-nav pull-md-right">
+        <li class="nav-item" show-authed="false"><a class="btn btn-outline-success" [routerLink]="['/signin']" >{{'signin'}}</a></li>
+        <li class="nav-item" show-authed="false"><a class="nav-link" [routerLink]="['/signup']"  >{{'signup'}}</a>
+        </li>
+        <li class="nav-item" show-authed="true"><button type="button" class="btn btn-outline-danger" (click)="onLogout()">{{'logout'}}</button>
+        </li>
+      </ul>-->
+      <!-- /.navbar-collapse -->
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</nav>

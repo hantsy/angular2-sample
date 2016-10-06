@@ -1,0 +1,46 @@
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['/']"><i class="material-icons">home</i>ANGULAR2 APP</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-inverse-collapse">
+      <ul class="nav navbar-nav" *ngIf="true">
+        <li>
+          <a [routerLink]="['/posts/home']">POSTS</a>
+        </li>
+        <li>
+          <a [routerLink]="['/about']">ABOUT</a>
+        </li>
+        <!--<li class="dropdown" ng-class="activeWhen(path().substring(0, 6) === '/admin')" ng-show="user.username && user.role == 'ADMIN'"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">{{'administration'}} <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/admin/users">{{'userAdmin'}}</a></li>
+          </ul>
+        </li>-->
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="expression">
+        <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><i class="material-icons">face</i> <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <!--<li><a href="#/user/home">{{'personalHome'}}</a></li>
+            <li><a href="#/user/password">{{'changePassword'}}</a></li>
+            <li><a href="#/user/profile">{{'updateProfile'}}</a></li>
+            <li class="divider"></li>-->
+            <li><a (click)="logout()">{{'LOGOUT'}}</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right" *ngIf="true">
+        <li><a [routerLink]="['/login']">SIGN IN </a></li>
+        <li><a [routerLink]="['/signup']">SIGN UP </a></li>
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</div>
