@@ -1,4 +1,4 @@
-import { CanActivate, Router } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -10,7 +10,8 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService) {
   }
 
-  canActivate(): Observable<boolean> {
-    return this.authService.ensureAuthIs(true);
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    this.authService.ensureAuthIs(true).subscribe();
+    return true;
   }
 }

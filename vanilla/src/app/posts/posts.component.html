@@ -2,11 +2,12 @@
   <div class="card-block bg-faded">
     <div class="row">
       <div class="col-md-9">
-        <form class="form-inline" (ngSubmit)="search()">
-          <div class="form-group">
+        <form class="form-inline">
+          <div class="form-group" (ngSubmit)="search()">
             <input type="text" name="q" class="form-control" [(ngModel)]="q" />
           </div>
           <button type="submit" class="btn btn-outline-info">{{'search'}}</button>
+          <!--<button type="button" class="btn btn-outline-info" (click)="clearTerm()">{{'clear'}}</button>-->
         </form>
       </div>
       <div class="col-md-3">

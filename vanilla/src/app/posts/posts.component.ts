@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Post } from '../core/post.model';
 import { PostService } from '../core/post.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -9,15 +10,43 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit, OnDestroy {
+  q: string = '';
   posts: Post[];
   sub: Subscription;
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService) {
+    // this.sub = this.q.valueChanges
+    //   .debounceTime(500)
+    //   .distinctUntilChanged()
+    //   .flatMap(term => this.postService.getPosts({ q: term }))
+    //   .subscribe((res: Array<Post>) => this.posts = res);
+  }
 
-  ngOnInit() {
-    this.sub = this.postService.getPosts().subscribe(
+
+  //  <form class="form-inline" (ngSubmit)="search(term.value)">
+  //           <div class="form-group">
+  //             <input type="text" #term name="q" class="form-control"  />
+  //           </div>
+  //           <button type="submit" class="btn btn-outline-info">{{'search'}}</button>
+  //         </form>
+  // search(term: string) {
+  //   this.sub = this.postService.getPosts({ q: term }).subscribe(
+  //     res => this.posts = res
+  //   );
+  // }
+
+  search() {
+    this.sub = this.postService.getPosts({ q: this.q }).subscribe(
       res => this.posts = res
     );
+  }
+
+  // clearTerm() {
+  //   this.q.setValue(null);
+  // }
+
+  ngOnInit() {
+    this.search();
     // this.posts = [
     //   {
     //     id: 1,
@@ -41,7 +70,9 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
 }

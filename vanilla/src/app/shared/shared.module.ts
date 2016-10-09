@@ -16,7 +16,7 @@ import { FooterComponent } from './footer.component';
     ShowAuthedDirective,
     NavbarComponent,
     FooterComponent
-    ],
+  ],
   exports: [
     ShowAuthedDirective,
     NavbarComponent,

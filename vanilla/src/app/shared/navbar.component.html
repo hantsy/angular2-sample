@@ -15,13 +15,13 @@
         <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/about']"  >{{'about'}}</a></li>
       </ul>
 
-      <!--<ul class="nav navbar-nav pull-md-right">
-        <li class="nav-item" show-authed="false"><a class="btn btn-outline-success" [routerLink]="['/signin']" >{{'signin'}}</a></li>
-        <li class="nav-item" show-authed="false"><a class="nav-link" [routerLink]="['/signup']"  >{{'signup'}}</a>
+      <ul class="nav navbar-nav pull-md-right">
+        <li class="nav-item" [appShowAuthed]="false"><a class="btn btn-outline-success" [routerLink]="['/signin']" >{{'signin'}}</a></li>
+        <li class="nav-item" [appShowAuthed]="false"><a class="nav-link" [routerLink]="['/signup']"  >{{'signup'}}</a>
         </li>
-        <li class="nav-item" show-authed="true"><button type="button" class="btn btn-outline-danger" (click)="onLogout()">{{'logout'}}</button>
+        <li class="nav-item" [appShowAuthed]="true"><button type="button" class="btn btn-outline-danger" (click)="logout()">{{'logout'}}</button>
         </li>
-      </ul>-->
+      </ul>
       <!-- /.navbar-collapse -->
     </div>
   </div>

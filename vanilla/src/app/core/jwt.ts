@@ -6,8 +6,8 @@ export class JWT {
 
   jwtKey: string = 'id_token';
 
-  constructor(@Inject(APP_CONFIG) config: AppConfig) {
-    this.jwtKey = config.jwtKey;
+  constructor(/*@Inject(APP_CONFIG) config: AppConfig*/) {
+    //this.jwtKey = config.jwtKey;
   }
 
   save(token) {

@@ -16,6 +16,7 @@
       "mobile": false,
       "styles": [
         "styles.css",
+        "forms.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],

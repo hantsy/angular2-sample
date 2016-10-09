@@ -1,3 +1,33 @@
-<p>
-  signin works!
-</p>
+<div class="row">
+  <div class="offset-md-3 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h1>{{'signin' }}</h1>
+      </div>
+      <div class="card-block">
+        <form #f="ngForm" id="form" name="form" class="form" (ngSubmit)="submit()" novalidate>
+          <div class="form-group" [class.has-danger]="username.invalid && !username.pristine">
+            <label class="form-control-label" for="username">{{'username'}}</label>
+            <input class="form-control" id="username" name="username" #username="ngModel" [(ngModel)]="data.username" required/>
+            <div class="form-control-feedback" *ngIf="username.invalid && !username.pristine">
+              <p *ngIf="username.errors.required">Username is required</p>
+            </div>
+          </div>
+          <div class="form-group" [class.has-danger]="password.invalid && !password.pristine">
+            <label class="form-control-label" for="password">{{'password'}}</label>
+            <input class="form-control" type="password" name="password" id="password" #password="ngModel" [(ngModel)]="data.password" required/>
+            <div class="form-control-feedback" *ngIf="password.invalid && !password.pristine">
+              <p ng-message="password.errors.required">Password is required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg" [disabled]="f.invalid || f.pending">  {{'signin'}}</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        Not registered, <a [routerLink]="['', 'signup']">{{'signup'}}</a>
+      </div>
+    </div>
+  </div>
+</div>

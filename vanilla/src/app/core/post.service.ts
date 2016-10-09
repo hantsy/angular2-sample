@@ -11,8 +11,8 @@ export class PostService {
 
   constructor(private api: ApiService) { }
 
-  getPosts() {
-    return this.api.get(`${this.path}`);
+  getPosts(term?: any) {
+    return this.api.get(`${this.path}`, term);
   }
 
   getPost(id: number) {
@@ -20,10 +20,12 @@ export class PostService {
   }
 
   savePost(data: Post) {
+    console.log('saving post:' + data);
     return this.api.post(`${this.path}`, data);
   }
 
   updatePost(id: number, data: Post) {
+    console.log('updating post:' + data);
     return this.api.put(`${this.path}/${id}`, data);
   }
 
