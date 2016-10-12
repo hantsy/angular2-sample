@@ -9,12 +9,12 @@ import { User } from './user.model';
 
 interface State {
   current: User;
-  desiredUrl: Array<any>;
+  desiredUrl: string;
 }
 
 const defaultState: State = {
   current: null,
-  desiredUrl: []
+  desiredUrl: null
 };
 
 const _store = new BehaviorSubject<State>(defaultState);
@@ -41,9 +41,13 @@ class Store {
 export class AuthService {
   _current: User = null;
   currentStore: BehaviorSubject<User> = new BehaviorSubject<User>(null);
-  desiredUrl: UrlSegment[] = null;
+  desiredUrl: string = null;
 
-  constructor(private api: ApiService, private jwt: JWT, private router: Router, private route: ActivatedRoute) {
+  constructor(
+    private api: ApiService,
+    private jwt: JWT,
+    private router: Router,
+    private route: ActivatedRoute) {
   }
 
   attempAuth(type: string, credentials: any) {
@@ -59,11 +63,11 @@ export class AuthService {
         // set Authorization header
         this.setJwtHeader(res.id_token);
 
-        // if (this.desiredUrl) {
-        //   this.router.navigate(this.desiredUrl);
-        // } else {
-        this.router.navigate(['']);
-        //}
+        if (this.desiredUrl && !this.desiredUrl.startsWith('/signin')) {
+          this.router.navigateByUrl(this.desiredUrl);
+        } else {
+          this.router.navigate(['']);
+        }
       });
   }
 
@@ -75,7 +79,7 @@ export class AuthService {
         if (authValid !== b) {
           console.log('not authenticationed.');
           // console.log('this.route.snapshot.url@' + this.route.snapshot.url);
-          // this.desiredUrl = this.route.snapshot.url;
+          this.desiredUrl = this.route.snapshot.url.join('');
           this.router.navigate(['', 'signin']);
           auth.next(false);
         } else {
