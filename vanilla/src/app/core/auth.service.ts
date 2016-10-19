@@ -46,8 +46,7 @@ export class AuthService {
   constructor(
     private api: ApiService,
     private jwt: JWT,
-    private router: Router,
-    private route: ActivatedRoute) {
+    private router: Router) {
   }
 
   attempAuth(type: string, credentials: any) {
@@ -78,9 +77,11 @@ export class AuthService {
         // if it's the opposite, redirect signin page.
         if (authValid !== b) {
           console.log('not authenticationed.');
-          // console.log('this.route.snapshot.url@' + this.route.snapshot.url);
-          this.desiredUrl = this.route.snapshot.url.join('');
-          this.router.navigate(['', 'signin']);
+
+          // this.desiredUrl = this.router.routerState.snapshot.url;
+          // console.log('this.route.snapshot.url@' + this.desiredUrl);
+
+          // this.router.navigate(['', 'signin']);
           auth.next(false);
         } else {
           console.log('authenticated.');

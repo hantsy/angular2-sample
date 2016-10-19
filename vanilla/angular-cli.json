@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.16",
+    "version": "1.0.0-beta.17",
     "name": "angular2-sample"
   },
   "apps": [
@@ -17,8 +17,7 @@
       "styles": [
         "styles.css",
         "forms.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "../node_modules/angular2-toaster/lib/toaster.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],
       "environments": {
