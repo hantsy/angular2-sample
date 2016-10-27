@@ -34,7 +34,5 @@ Thumbs.db
 
 vanilla-backup
 material2
-
 coverage
-
-/material2-backup
+*-backup
