@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1 class="text-xs-center text-uppercase text-justify">
+    Angular 2 Sample
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6" *ngFor="let s of skills">
+    <div class="card" >
+      <div class="card-header">
+        <h3 class="text-uppercase text-justify">{{s.name}}</h3>
+      </div>
+      <div class="card-block">
+        <p>{{s.description}}</p>
+        <a [href]="s.url">{{s.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>

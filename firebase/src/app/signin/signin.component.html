@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="offset-md-2 col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h1>{{'signin' }}</h1>
+      </div>
+      <div class="card-block">
+        <form #f="ngForm" id="form" name="form" class="form" (ngSubmit)="signInWithEmailAndPassword()" novalidate>
+          <div class="form-group" [class.has-danger]="email.invalid && !email.pristine">
+            <label class="form-control-label" for="email">{{'email'}}</label>
+            <input class="form-control" id="email" name="email" type="email" #email="ngModel" [(ngModel)]="data.email" required/>
+            <div class="form-control-feedback" *ngIf="email.invalid && !email.pristine">
+              <p *ngIf="email.errors.required">email is required</p>
+              <p *ngIf="email.errors.email">email format is invalid </p>
+            </div>
+          </div>
+          <div class="form-group" [class.has-danger]="password.invalid && !password.pristine">
+            <label class="form-control-label" for="password">{{'password'}}</label>
+            <input class="form-control" type="password" name="password" id="password" #password="ngModel" [(ngModel)]="data.password" required/>
+            <div class="form-control-feedback" *ngIf="password.invalid && !password.pristine">
+              <p ng-message="password.errors.required">Password is required</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg" [disabled]="f.invalid || f.pending">  {{'signin'}}</button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        Not registered, <a [routerLink]="['', 'signup']">{{'signup'}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h1>{{'signin_with' }}</h1>
+      </div>
+      <div class="card-block">
+        <button class="btn btn-outline-success btn-lg btn-block" (click)="signInWithGithub()" type="button">GitHub</button>
+        <button class="btn btn-outline-success btn-lg btn-block" (click)="signInWithGoogle()" type="button">Google</button>
+        <button class="btn btn-outline-success btn-lg btn-block" (click)="signInWithTwitter()" type="button">Twitter</button>
+        <button class="btn btn-outline-success btn-lg btn-block" (click)="signInWithFacebook()" type="button">Facebook</button>
+      </div>
+    </div>
+  </div>
+</div>

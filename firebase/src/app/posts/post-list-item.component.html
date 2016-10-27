@@ -1,0 +1,12 @@
+<div class="col-md-6">
+	<!--post :{{post|json}}-->
+	<div class="card card-block">
+		<h4 class="card-title">{{post.title}}</h4>
+		<h6 class="card-subtitle text-muted">{{post.createdAt|date:'short'}}</h6>
+		<p class="card-text">{{post.content}}</p>
+		<div class="text-md-right">
+			<a [routerLink]="['/posts', 'edit', post.$key]">edit</a>
+			<a [routerLink]="['/posts', 'view', post.$key]">view</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+Only show my posts:
+<label class="form-check-inline">
+  <input
+    type="checkbox"
+    name="q"
+    class="form-check-input"
+    [ngModel]="q"
+    (ngModelChange)="onToggleFilter()"/>
+</label>
+
+<span class="float-md-right">
+  <a class="btn btn-success" [routerLink]="['/posts', 'new']">new-post</a>
+</span>

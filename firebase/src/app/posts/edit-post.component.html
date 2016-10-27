@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title">{{'edit-post'}} </h2>
+    <div> {{data.createdBy}} &bull; {{data.createdAt}} &bull;</div>
+    <div><small>all fields marked with star are required.</small></div>
+  </div>
+  <div class="card-block">
+
+    <form id="form" #f="ngForm" name="form" class="form" (ngSubmit)="save()" novalidate>
+
+      <div class="form-group" [class.has-danger]="title.invalid && !title.pristine">
+        <label class="form-control-label" for="title">{{'title'}} *</label>
+        <input class="form-control" id="title" name="title" #title="ngModel" [(ngModel)]="data.title" required/>
+        <div class="form-control-feedback" *ngIf="title.invalid && !title.pristine">
+          <p *ngIf="title.errors.required">Post Title is required</p>
+        </div>
+      </div>
+
+      <div class="form-group" [class.has-danger]="content.invalid && !content.pristine">
+        <label class="form-control-label" for="content">{{'content'}} *</label>
+        <textarea class="form-control" #content="ngModel" type="content" name="content" id="content" [(ngModel)]="data.content" rows="8" required
+          minlength="10">
+        </textarea>
+        <div class="form-control-feedback" *ngIf="content.invalid && !content.pristine">
+          <p *ngIf="content.errors.required">Post Content is required</p>
+          <p *ngIf="content.errors.minlength">At least 10 chars</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg" [disabled]="f.invalid || f.pending">  {{'save'}}</button>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    back to <a [routerLink]="['','posts']">{{'post-list'}}</a>
+  </div>
+</div>
+

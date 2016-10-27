@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header">
+    <h2 class="card-title text-xs-center text-uppercase text-justify">
+      {{post.title}}
+    </h2>
+    <div class="text-xs-center text-muted"><small>{{post.createdBy}} &bull; {{post.createdAt|date:'short'}}</small></div>
+  </div>
+  <div class="card-block">
+    <p>
+      {{post.content}}
+    </p>
+  </div>
+  <div class="card-footer">
+    back to <a [routerLink]="['','posts']">{{'post-list'}}</a>
+  </div>
+</div>
