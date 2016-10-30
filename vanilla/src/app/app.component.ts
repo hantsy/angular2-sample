@@ -18,5 +18,8 @@ export class AppComponent {
     // translate.use(browserLang.match(/en|zh/) ? browserLang : 'en');
 
     this.translate.use('en');
+
+    console.log('posts of lang:' + this.translate.instant('posts'));
+    console.log('posts nonexist of lang:' + this.translate.instant('posts-nonexist'));
   }
 }
