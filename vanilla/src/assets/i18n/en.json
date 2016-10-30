@@ -1,0 +1,5 @@
+{
+  "posts": "Posts",
+  "new-post": "New Post",
+  "welcome-back":"Welcome back,{{name}}"
+}
