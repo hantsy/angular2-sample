@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { TranslateService } from 'ng2-translate';
 import { FormControl } from '@angular/forms';
 import { Post } from '../core/post.model';
 import { PostService } from '../core/post.service';
@@ -14,7 +15,10 @@ export class PostsComponent implements OnInit, OnDestroy {
   posts: Post[];
   sub: Subscription;
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private translate: TranslateService) {
+
+    console.log('posts of lang:' + this.translate.instant('posts'));
+    console.log('posts nonexist of lang:' + this.translate.instant('posts-nonexist'));
     // this.sub = this.q.valueChanges
     //   .debounceTime(500)
     //   .distinctUntilChanged()

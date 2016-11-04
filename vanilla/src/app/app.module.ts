@@ -6,7 +6,7 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppTranslateModule } from './app-translate.module';
+
 
 import { APP_CONFIG, DEFAULT_APP_CONFIG } from './app.config';
 import { AppComponent } from './app.component';
@@ -33,7 +33,7 @@ import { AboutModule } from './about/about.module';
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    AppTranslateModule,
+
     HomeModule,
     AboutModule
   ],
