@@ -6,7 +6,7 @@
   </div>
   <div class="media-body">
     <h6 class="media-heading">{{comment.createdBy}} &bull; {{comment.createdAt}}</h6>
-    <p> {{comment.content}}</p>
+    <p [innerHTML]="comment.content|nl2br"></p>
   </div>
 </div>
 

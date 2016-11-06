@@ -27,9 +27,19 @@
             </div>
           </div>
 
+           <div class="form-group" [class.has-danger]="email.invalid && !email.pristine">
+            <label class="form-control-label" for="email">{{'email'}}</label>
+            <input class="form-control" id="email" name="email" type="email" [formControl]="email" validateEmail/>
+            {{email.errors|json}}
+            <div class="form-control-feedback" *ngIf="email.invalid && !email.pristine">
+              <p *ngIf="email.errors.required">email is required</p>
+              <p *ngIf="email.errors.validateEmail">Email is invalid</p>
+            </div>
+          </div>
+
           <div class="form-group" [class.has-danger]="username.invalid && !username.pristine">
             <label class="form-control-label" for="username">{{'username'}}</label>
-            <input class="form-control" id="username" name="username" [formControl]="username"/>
+            <input class="form-control" id="username" name="username" type="text" [formControl]="username"/>
             <div class="form-control-feedback" *ngIf="username.invalid && !username.pristine">
               <p *ngIf="username.errors.required">Username is required</p>
               <p *ngIf="username.errors.minlength">Username is too short(at least 6 chars)</p>

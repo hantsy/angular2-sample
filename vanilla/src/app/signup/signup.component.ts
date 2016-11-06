@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../core/auth.service';
 
 @Component({
@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   firstName: FormControl;
   lastName: FormControl;
+  email: FormControl;
   username: FormControl;
   password: FormControl;
   passwordConfirm: FormControl;
@@ -34,6 +35,7 @@ export class SignupComponent implements OnInit {
   constructor(private authService: AuthService, private fb: FormBuilder) {
     this.firstName = new FormControl('', [Validators.required]);
     this.lastName = new FormControl('', [Validators.required]);
+    this.email = new FormControl('', [Validators.required]);
     this.username = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]);
     this.password = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]);
     this.passwordConfirm = new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]);
@@ -49,6 +51,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = fb.group({
       firstName: this.firstName,
       lastName: this.lastName,
+      email: this.email,
       username: this.username,
       passwordGroup: this.passwordGroup
     });
@@ -58,6 +61,16 @@ export class SignupComponent implements OnInit {
     return g.get('password').value === g.get('passwordConfirm').value
       ? null : { 'mismatch': true };
   }
+
+  // validateEmail(c: FormControl) {
+  //   let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+
+  //   return EMAIL_REGEXP.test(c.value) ? null : {
+  //     validateEmail: {
+  //       valid: false
+  //     }
+  //   };
+  // }
 
   ngOnInit() {
   }
