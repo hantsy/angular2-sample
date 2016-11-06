@@ -14,7 +14,7 @@ function validateEmailFactory(/* emailBlackList: EmailBlackList*/) {
 }
 
 @Directive({
-  selector: '[validateEmail][ngModel], [validateEmail][formControl]',
+  selector: '[validateEmail][ngModel], [validateEmail][formControl], [validateEmail][formControlName]',
   providers: [
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => EmailValidatorDirective), multi: true }
   ]
