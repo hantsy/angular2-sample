@@ -12,7 +12,8 @@ function validateEmailFactory(/* emailBlackList: EmailBlackList*/) {
     };
   };
 }
-
+//http://blog.thoughtram.io/angular/2016/03/14/custom-validators-in-angular-2.html
+//http://blog.ng-book.com/the-ultimate-guide-to-forms-in-angular-2/
 @Directive({
   selector: '[validateEmail][ngModel], [validateEmail][formControl], [validateEmail][formControlName]',
   providers: [
