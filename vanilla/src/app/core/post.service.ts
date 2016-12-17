@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { Post } from './post.model';
 import { Comment } from './comment.model';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PostService {
@@ -11,11 +12,11 @@ export class PostService {
 
   constructor(private api: ApiService) { }
 
-  getPosts(term?: any) {
+  getPosts(term?: any): Observable<Post[]> {
     return this.api.get(`${this.path}`, term);
   }
 
-  getPost(id: number) {
+  getPost(id: number):Observable<Post> {
     return this.api.get(`${this.path}/${id}`);
   }
 
