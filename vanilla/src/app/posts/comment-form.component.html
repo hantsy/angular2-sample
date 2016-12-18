@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-block">
-    <form id="form" name="form" class="form" [formGroup]="commentForm" (ngSubmit)="saveCommentForm()" novalidate>
+    <form [appShowAuthed]="true" id="form" name="form" class="form" [formGroup]="commentForm" (ngSubmit)="saveCommentForm()" novalidate>
       <div class="form-group" [class.has-danger]="content.invalid && !content.pristine">
         <textarea class="form-control" name="content" id="content" [formControl]="content" rows="8">
         </textarea>
@@ -14,5 +14,9 @@
         </button>
       </div>
     </form>
+    <div [appShowAuthed]="false" class="text-md-center align-middle">
+      <div>Please signin and add your comments.</div>
+      <div><a class="btn btn-success btn-lg" [routerLink]="['/signin']">SIGN IN</a></div>
+    </div>
   </div>
 </div>
