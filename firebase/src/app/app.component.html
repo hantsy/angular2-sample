@@ -1,10 +1,37 @@
-<app-navbar
-      [authenticated]="auth.authenticated"
-      (signOut)="signOut()"></app-navbar>
+<!--<app-navbar [authenticated]="auth.authenticated" (signOut)="signOut()"></app-navbar>
 <div class="page">
   <div class="container">
     <router-outlet></router-outlet>
   </div>
 </div>
-<app-footer></app-footer>
+<app-footer></app-footer>-->
 
+<div>
+  <mdl-layout #mdlLayout1="mdlLayout" mdl-layout-fixed-header>
+    <mdl-layout-drawer *ngIf="auth.authenticated">
+      <mdl-layout-title>Ng2Firebase Sample</mdl-layout-title>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" [routerLink]="['/layout/l1']" (click)="mdlLayout1.closeDrawer()">Link 1</a>
+        <a class="mdl-navigation__link" [routerLink]="['/layout/l2']" (click)="mdlLayout1.closeDrawer()">Link 2</a>
+        <a class="mdl-navigation__link" [routerLink]="['/layout/l3']" (click)="mdlLayout1.closeDrawer()">Link 3</a>
+      </nav>
+      <mdl-layout-spacer></mdl-layout-spacer>
+      <button mdl-button (click)="mdlLayout1.toggleDrawer()" mdl-button-type="raised" mdl-colored="primary">Toggle Drawer</button>
+    </mdl-layout-drawer>
+    <mdl-layout-header>
+      <mdl-layout-header-row>
+        <mdl-layout-title>{{title}}</mdl-layout-title>
+        <mdl-layout-spacer></mdl-layout-spacer>
+        <nav class="mdl-navigation">
+          <a [appShowAuthed]="true" class="mdl-navigation__link" (click)="signOut()">SIGN OUT</a>
+          <a [appShowAuthed]="false" class="mdl-navigation__link" [routerLink]="['/signin']">SIGN IN</a>
+          <a [appShowAuthed]="false" class="mdl-navigation__link" [routerLink]="['/signup']">SIGN UP</a>
+        </nav>
+      </mdl-layout-header-row>
+    </mdl-layout-header>
+
+    <mdl-layout-content>
+      <router-outlet></router-outlet>
+    </mdl-layout-content>
+  </mdl-layout>
+</div>

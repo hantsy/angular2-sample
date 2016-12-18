@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-//import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './posts.component';
 import { NewPostComponent } from './new-post.component';
@@ -18,10 +18,7 @@ import { PostSearchBarComponent } from './post-search-bar.component';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    // CoreModule,
+    SharedModule,
     PostsRoutingModule
   ],
   declarations: [
