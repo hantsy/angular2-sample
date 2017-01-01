@@ -32,7 +32,5 @@ e2e/*.map
 .DS_Store
 Thumbs.db
 
-vanilla-backup
-material2
 coverage
 *-backup
