@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router, ActivatedRoute, UrlSegment } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject, ReplaySubject } from 'rxjs/Rx';
 
 import { ApiService } from './api.service';
 import { JWT } from './jwt';
@@ -17,10 +17,10 @@ const defaultState: State = {
   desiredUrl: null
 };
 
-const _store = new BehaviorSubject<State>(defaultState);
+const store$ = new BehaviorSubject<State>(defaultState);
 
-class Store {
-  _store = _store;
+class AuthStore {
+  _store = store$;
   changes = this._store.distinctUntilChanged();
 
   setState(state: State) {
@@ -39,9 +39,10 @@ class Store {
 
 @Injectable()
 export class AuthService {
-  _current: User = null;
-  currentStore: BehaviorSubject<User> = new BehaviorSubject<User>(null);
-  desiredUrl: string = null;
+
+  private currentUser$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  private authenticated$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
+  private desiredUrl: string = null;
 
   constructor(
     private api: ApiService,
@@ -50,91 +51,89 @@ export class AuthService {
   }
 
   attempAuth(type: string, credentials: any) {
-    let path = (type === 'signin') ? '/login' : '/signup';
-    let url = '/auth' + path;
+    const path = (type === 'signin') ? '/login' : '/signup';
+    const url = '/auth' + path;
 
     this.api.post(url, credentials)
       .map(res => res.json())
       .subscribe(res => {
         this.jwt.save(res.id_token);
-        this._current = res.user;
-        this.currentStore.next(res.user);
         // set Authorization header
         this.setJwtHeader(res.id_token);
 
+        this.setState(res.user);
+
         if (this.desiredUrl && !this.desiredUrl.startsWith('/signin')) {
-          this.router.navigateByUrl(this.desiredUrl);
+          const _targetUrl = this.desiredUrl;
+          this.desiredUrl = null;
+          this.router.navigateByUrl(_targetUrl);
         } else {
           this.router.navigate(['']);
         }
       });
   }
 
-  ensureAuthIs(b: boolean): Observable<boolean> {
-    const auth = new BehaviorSubject<boolean>(false);
-    this.verifyAuth()
-      .subscribe((authValid) => {
-        // if it's the opposite, redirect signin page.
-        if (authValid !== b) {
-          console.log('not authenticationed.');
 
-          // this.desiredUrl = this.router.routerState.snapshot.url;
-          // console.log('this.route.snapshot.url@' + this.desiredUrl);
-
-          // this.router.navigate(['', 'signin']);
-          auth.next(false);
-        } else {
-          console.log('authenticated.');
-          auth.next(true);
-        }
-      });
-    return auth.asObservable();
-  }
-
-  verifyAuth(): Observable<boolean> {
-    const auth = new BehaviorSubject<boolean>(false);
+  verifyAuth(): void {
 
     // jwt token is not found in local storage.
-    if (!this.jwt.get()) {
-      auth.next(false);
-    }
+    if (this.jwt.get()) {
 
-    if (this._current) {
-      auth.next(true);
-    } else {
       // set jwt header and try to refresh user info.
       this.setJwtHeader(this.jwt.get());
 
       this.api.get('/me').subscribe(
         res => {
-          this._current = res;
-          this.currentStore.next(res);
-          auth.next(true);
+          this.currentUser$.next(res);
+          this.authenticated$.next(true);
         },
         err => {
+          this.clearJwtHeader();
           this.jwt.destroy();
-          auth.next(false);
+          this.currentUser$.next(null);
+          this.authenticated$.next(false);
         }
       );
     }
 
-    return auth.asObservable();
   }
 
   logout() {
     // reset the initial values
-    this._current = null;
-    this.currentStore.next(null);
+    this.setState(null);
     //this.desiredUrl = null;
 
     this.jwt.destroy();
     this.clearJwtHeader();
+    this.desiredUrl = null;
 
     this.router.navigate(['']);
   }
 
-  get current(): Observable<User> {
-    return this.currentStore.distinctUntilChanged();
+  currentUser(): Observable<User> {
+    return this.currentUser$.distinctUntilChanged();
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    return this.authenticated$.asObservable();
+  }
+
+  getDesiredUrl() {
+    return this.desiredUrl;
+  }
+
+  setDesiredUrl(url: string) {
+    this.desiredUrl = url;
+  }
+
+  private setState(state: User) {
+    if (state) {
+      this.currentUser$.next(state);
+      this.authenticated$.next(true);
+    } else {
+      this.currentUser$.next(null);
+      this.authenticated$.next(false);
+    }
   }
 
   private setJwtHeader(jwt: string) {

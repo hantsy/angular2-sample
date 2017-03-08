@@ -1,15 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from 'ng2-translate';
+import { AuthService } from './core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app works!';
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private authService: AuthService) {
     // this language will be used as a fallback when a translation isn't found in the current language
     this.translate.setDefaultLang('en');
 
@@ -21,5 +22,9 @@ export class AppComponent {
 
     console.log('posts of lang:' + this.translate.instant('posts'));
     console.log('posts nonexist of lang:' + this.translate.instant('posts-nonexist'));
+  }
+
+  ngOnInit() {
+    this.authService.verifyAuth();
   }
 }

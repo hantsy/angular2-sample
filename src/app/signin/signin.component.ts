@@ -8,8 +8,7 @@ import { AuthService } from '../core/auth.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit,
-OnDestroy {
+export class SigninComponent implements OnInit, OnDestroy {
 
   data = {
     username: '',
@@ -18,9 +17,9 @@ OnDestroy {
 
   sub: Subscription;
 
-  constructor(private authServcie : AuthService) {}
+  constructor(private authServcie: AuthService) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   submit() {
     console.log('signin with credentials:' + this.data);

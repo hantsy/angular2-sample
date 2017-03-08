@@ -16,7 +16,7 @@ export class ShowAuthedDirective implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('[appShowAuthed] ngOnInit:');
-    this.sub = this.authService.current.subscribe((res) => {
+    this.sub = this.authService.currentUser().subscribe((res) => {
       if (res) {
         if (this.appShowAuthed) {
           this.renderer.setElementStyle(this.el.nativeElement, 'display', 'inherit');

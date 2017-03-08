@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card my-2">
   <div class="card-block bg-faded">
     <div class="row">
       <div class="col-md-9">
@@ -20,7 +20,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6" *ngFor="let post of posts ">
+  <div class="col-md-6 my-1" *ngFor="let post of posts ">
     <div class="card card-block">
       <h4 class="card-title">{{post.title}}</h4>
       <h6 class="card-subtitle text-muted">{{post.createdAt|date:'short'}}</h6>
