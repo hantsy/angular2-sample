@@ -1,3 +1,8 @@
 <app-post-details-card [post]="post"></app-post-details-card>
 <app-comment-list [comments]="comments"></app-comment-list>
-<app-comment-form (saved)="saveComment($event)"></app-comment-form>
+<div [appShowAuthed]="true">
+  <app-comment-form (saved)="saveComment($event)"></app-comment-form>
+</div>
+<div class="mx-auto my-2" [appShowAuthed]="false">
+  <a class="btn btn-lg btn-success" routerLink="/signin">SING IN</a>
+</div>

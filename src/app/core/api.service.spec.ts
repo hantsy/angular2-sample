@@ -4,7 +4,7 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { HttpModule, BaseRequestOptions, Http, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
-import { APP_CONFIG, DEFAULT_APP_CONFIG} from '../app.config';
+import { APP_CONFIG, DEFAULT_APP_CONFIG } from '../app.config';
 import { ApiService } from './api.service';
 
 describe('Service: Api', () => {
@@ -89,9 +89,11 @@ describe('Service: Api', () => {
 
     apiService.post('/posts', requestBody)
       .subscribe(post => {
-        expect(post).toEqual(response);
+        expect(post.json()).toEqual(response);
+        expect(post.status).toBe(201);
       });
-  }));
+  })
+  );
 
 
   it('should make put request', async(() => {
@@ -110,7 +112,8 @@ describe('Service: Api', () => {
 
     apiService.put('/posts/1', requestBody)
       .subscribe(post => {
-        expect(post).toEqual(response);
+        expect(post.json()).toEqual(response);
+        expect(post.status).toBe(204);
       });
   }));
 
@@ -126,7 +129,8 @@ describe('Service: Api', () => {
 
     apiService.delete('/posts/1')
       .subscribe(post => {
-        expect(post).toEqual(response);
+        expect(post.json()).toEqual(response);
+        expect(post.status).toBe(204);
       });
   }));
 
