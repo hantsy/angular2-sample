@@ -94,8 +94,12 @@ export class AuthService {
           this.authenticated$.next(false);
         }
       );
+    } else {
+      this.clearJwtHeader();
+      this.jwt.destroy();
+      this.currentUser$.next(null);
+      this.authenticated$.next(false);
     }
-
   }
 
   logout() {
