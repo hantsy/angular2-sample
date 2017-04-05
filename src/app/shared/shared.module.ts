@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { ShowAuthedDirective } from './show-authed.directive';
 import { NavbarComponent } from './navbar.component';
@@ -17,7 +18,10 @@ import { EmailValidatorDirective } from './email-validator.directive';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    AppTranslateModule
+    AppTranslateModule,
+
+    //3rd party modules
+    Ng2BootstrapModule.forRoot()
   ],
   declarations: [
     ShowAuthedDirective,
@@ -36,7 +40,8 @@ import { EmailValidatorDirective } from './email-validator.directive';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    AppTranslateModule
+    AppTranslateModule,
+    Ng2BootstrapModule
   ],
 })
 export class SharedModule { }

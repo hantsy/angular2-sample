@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader, MissingTranslationHandler } from 'ng2-translate';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateStaticLoader,
+  MissingTranslationHandler,
+  MissingTranslationHandlerParams
+} from 'ng2-translate';
 
 
 export function createTranslateLoader(http: Http) {
@@ -9,8 +15,8 @@ export function createTranslateLoader(http: Http) {
 }
 
 export class MyMissingTranslationHandler implements MissingTranslationHandler {
-  handle(key: string) {
-    return 'missing key: [' + key + ']';
+  handle(params: MissingTranslationHandlerParams) {
+    return '[' + params.key + ']';
   }
 }
 
@@ -40,7 +46,7 @@ export class MyMissingTranslationHandler implements MissingTranslationHandler {
   ],
   exports: [TranslateModule],
   providers: [
-     { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler }
+    { provide: MissingTranslationHandler, useClass: MyMissingTranslationHandler }
   ],
 })
 export class AppTranslateModule { }
