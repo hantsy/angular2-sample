@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { Post } from '../core/post.model';
-import { PostService } from '../core/post.service';
+import { Post } from './post.model';
+import { PostService } from './post.service';
 
 @Component({
   selector: 'app-new-post',
@@ -10,27 +10,22 @@ import { PostService } from '../core/post.service';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit, OnDestroy {
-  data = { title: '', content: '' };
+  post: Post = { title: '', content: '' };
   sub: Subscription;
 
-  constructor(private postService: PostService, private router: Router) { }
+  constructor( private router: Router) { }
 
-  save() {
-    console.log('saving post data!' + this.data);
-    this.postService
-      .savePost(this.data)
-      .subscribe(res => {
-        this.router.navigate(['', 'posts']);
-      });
+  onPostSaved(event) {
+    console.log('post was saved!' + event);
+    if (event) {
+      this.router.navigate(['', 'posts']);
+    }
   }
 
   ngOnInit() {
   }
 
   ngOnDestroy() {
-    // if (this.sub) {
-    //   this.sub.unsubscribe();
-    // }
   }
 
 }

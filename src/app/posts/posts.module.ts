@@ -4,14 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { PostsRoutingModule } from './posts-routing.module';
-import { PostsComponent } from './posts.component';
+import { PostsHomeComponent } from './home.component';
 import { NewPostComponent } from './new-post.component';
 import { EditPostComponent } from './edit-post.component';
 import { PostDetailsComponent } from './post-details.component';
-import { PostDetailsCardComponent } from './post-details-card.component';
-import { CommentListComponent } from './comment-list.component';
-import { CommentListItemComponent } from './comment-list-item.component';
-import { CommentFormComponent } from './comment-form.component';
+import { PostDetailsCardComponent } from './post-card/post-details-card.component';
+import { CommentListComponent } from './comment/comment-list.component';
+import { CommentListItemComponent } from './comment/comment-list-item.component';
+import { CommentFormComponent } from './comment/comment-form.component';
+import { CommentPanelComponent } from './comment/comment-panel.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { PostService } from './post.service';
 
 @NgModule({
   imports: [
@@ -19,20 +22,27 @@ import { CommentFormComponent } from './comment-form.component';
     PostsRoutingModule
   ],
   declarations: [
-    PostsComponent,
+    PostsHomeComponent,
     NewPostComponent,
     EditPostComponent,
     PostDetailsComponent,
     PostDetailsCardComponent,
     CommentListComponent,
     CommentListItemComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    PostFormComponent,
+    CommentPanelComponent
   ],
   exports: [
     PostDetailsCardComponent,
     CommentListComponent,
     CommentListItemComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    PostFormComponent,
+    CommentPanelComponent
+  ],
+  providers: [
+    PostService,
   ]
 })
 export class PostsModule { }

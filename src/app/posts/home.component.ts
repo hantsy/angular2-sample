@@ -1,29 +1,20 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TranslateService } from 'ng2-translate';
 import { FormControl } from '@angular/forms';
-import { Post } from '../core/post.model';
-import { PostService } from '../core/post.service';
+import { Post } from './post.model';
+import { PostService } from './post.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.css']
+  selector: 'app-posts-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class PostsComponent implements OnInit, OnDestroy {
+export class PostsHomeComponent implements OnInit, OnDestroy {
   q: string = '';
   posts: Post[];
   sub: Subscription;
 
-  constructor(private postService: PostService, private translate: TranslateService) {
-
-    console.log('posts of lang:' + this.translate.instant('posts'));
-    console.log('posts nonexist of lang:' + this.translate.instant('posts-nonexist'));
-    // this.sub = this.q.valueChanges
-    //   .debounceTime(500)
-    //   .distinctUntilChanged()
-    //   .flatMap(term => this.postService.getPosts({ q: term }))
-    //   .subscribe((res: Array<Post>) => this.posts = res);
+  constructor(private postService: PostService) {
   }
 
 

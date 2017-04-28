@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-block">
+    <app-comment-list [comments]="comments"></app-comment-list>
+    <div [appShowAuthed]="true">
+      <app-comment-form [post]="post" (onSaved)="onCommentSaved($event)"></app-comment-form>
+    </div>
+    <div [appShowAuthed]="false" class="text-md-center align-middle">
+      <div>Please signin and add your comments.</div>
+      <div><a class="btn btn-success btn-lg" [routerLink]="['/signin']">SIGN IN</a></div>
+    </div>
+  </div>
+</div>
