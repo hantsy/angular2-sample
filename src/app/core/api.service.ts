@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Rx';
 
 import { APP_CONFIG, AppConfig } from '../app.config';
 
+/**
+ * ApiService: calling remote RESTful APIs.
+ */
 @Injectable()
 export class ApiService {
 
@@ -18,6 +21,12 @@ export class ApiService {
     //this.API_URL = config.apiEndpoint;
   }
 
+
+/**
+ * @param path url path to get resource.
+ * @param term optional search term.
+ * @return A obserable object to wrap the response result.
+ */
   public get(path: string, term?: any): Observable<any> {
     console.log('get resources from url:' + `${this.API_URL}${path}`);
     let search = new URLSearchParams();
