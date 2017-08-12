@@ -1,22 +1,29 @@
-<nav class="navbar sticky-top navbar-toggleable-md navbar-light bg-faded">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerContent" aria-controls="navbarTogglerContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" [routerLink]="['/home']" >ANGULAR 2 SAMPLE </a>
+    <a class="navbar-brand" [routerLink]="['/home']">ANGULAR 2 SAMPLE </a>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <div class="collapse navbar-collapse" id="navbarTogglerContent">
 
-      <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-        <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/posts']"  >{{'posts'|translate}}</a></li>
-        <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/posts', 'new']"  >{{'new-post'|translate}}</a></li>
-        <li class="nav-item" [routerLinkActive]="['active']"><a class="nav-link" [routerLink]="['/about']"  >{{'about'}}</a></li>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/posts']">{{'posts'|translate}}</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/posts', 'new']">{{'new-post'|translate}}</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['active']">
+          <a class="nav-link" [routerLink]="['/about']">{{'about'}}</a>
+        </li>
       </ul>
 
       <ul class="navbar-nav my-2 my-lg-0">
-        <li class="nav-item" [appShowAuthed]="false"><a class="btn btn-outline-success" [routerLink]="['/signin']" >{{'signin'}}</a></li>
-        <li class="nav-item" [appShowAuthed]="false"><a class="nav-link" [routerLink]="['/signup']"  >{{'signup'}}</a>
+        <li class="nav-item" [appShowAuthed]="false"><a class="btn btn-outline-success" [routerLink]="['/signin']">{{'signin'}}</a></li>
+        <li class="nav-item" [appShowAuthed]="false"><a class="nav-link" [routerLink]="['/signup']">{{'signup'}}</a>
         </li>
         <li class="nav-item" [appShowAuthed]="true"><button type="button" class="btn btn-outline-danger" (click)="logout()">{{'logout'}}</button>
         </li>
@@ -25,3 +32,4 @@
     </div>
   </div>
 </nav>
+

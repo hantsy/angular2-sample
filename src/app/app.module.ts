@@ -2,8 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Http } from '@angular/http';
-import { Ng2BootstrapModule } from 'ngx-bootstrap';
-
 import { AppRoutingModule } from './app-routing.module';
 
 import { APP_CONFIG, DEFAULT_APP_CONFIG } from './app.config';
@@ -21,6 +19,7 @@ import {
   MissingTranslationHandlerParams
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,7 +43,7 @@ export class MyMissingTranslationHandler implements MissingTranslationHandler {
         deps: [Http]
       }
     }),
-    Ng2BootstrapModule.forRoot(),
+    NgbModule.forRoot(),
     CoreModule,
     AppRoutingModule,
     HomeModule,

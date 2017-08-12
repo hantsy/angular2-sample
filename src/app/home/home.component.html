@@ -1,16 +1,14 @@
-<h1 class="text-uppercase my-3">
+<h1 class="text-uppercase my-5 mx-2 mx-sm-1 my-sm-1">
   Angular 2 Sample
 </h1>
 
 <div class="row">
-  <div class="col-md-6 my-1" *ngFor="let s of skills">
+  <div class="col-md-4 my-1" *ngFor="let s of skills">
     <div class="card">
-      <div class="card-header">
-        <h3 class="text-uppercase text-justify">{{s.name}}</h3>
-      </div>
-      <div class="card-block">
-        <p>{{s.description}}</p>
-        <a [href]="s.url">{{s.name}}</a>
+      <div class="card-body">
+        <h4 class="card-title mb2">{{s.name}}</h4>
+        <p class="card-text">{{s.description}}</p>
+        <a class="card-link" [href]="s.url">{{s.name}}</a>
       </div>
     </div>
   </div>
