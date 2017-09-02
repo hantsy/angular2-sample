@@ -1,5 +1,5 @@
 <div class="card my-2">
-  <div class="card-block bg-faded">
+  <div class="card-body bg-faded">
     <div class="row">
       <div class="col-md-9">
         <form class="form-inline">
@@ -20,12 +20,12 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6 my-1" *ngFor="let post of posts ">
-    <div class="card card-block">
+  <div class="col-xs-12 col-md-6 my-1" *ngFor="let post of posts ">
+    <div class="card card-body">
       <h4 class="card-title">{{post.title}}</h4>
       <h6 class="card-subtitle text-muted">{{post.createdAt|date:'short'}}</h6>
       <p class="card-text">{{post.content}}</p>
-      <div class="text-md-right">
+      <div class="card-link">
         <a [routerLink]="['/posts', 'edit', post.id]">edit</a>
         <a [routerLink]="['/posts', 'view', post.id]">view</a>
       </div>

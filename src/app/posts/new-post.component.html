@@ -1,9 +1,9 @@
 <div class="card">
   <div class="card-header">
     <h1 class="card-title">{{'new-post'}} </h1>
-    <p><small>all fields marked with star are required.</small></p>
+    <div class="text-muted"><small>all fields marked with star are required.</small></div>
   </div>
-  <div class="card-block">
+  <div class="card-body">
     <app-post-form [post]="post" (onSaved)="onPostSaved($event)"></app-post-form>
   </div>
   <div class="card-footer">

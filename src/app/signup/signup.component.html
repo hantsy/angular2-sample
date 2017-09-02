@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="offset-md-3 col-md-6">
+  <div class="ml-auto mr-auto col-md-6">
     <div class="card">
       <div class="card-header">
-        <h1>{{ 'signup' }}</h1>
+        <h1 class="card-title">{{ 'signup' }}</h1>
       </div>
-      <div class="card-block">
+      <div class="card-body">
         <form id="form" name="form" class="form" [formGroup]="signupForm" (ngSubmit)="submit()" novalidate>
           <div class="row">
             <div class="col-md-6">
@@ -30,7 +30,7 @@
            <div class="form-group" [class.has-danger]="email.invalid && !email.pristine">
             <label class="form-control-label" for="email">{{'email'}}</label>
             <input class="form-control" id="email" name="email" type="email" [formControl]="email" validateEmail/>
-            {{email.errors|json}}
+            <!-- {{email.errors|json}} -->
             <div class="form-control-feedback" *ngIf="email.invalid && !email.pristine">
               <p *ngIf="email.errors.required">email is required</p>
               <p *ngIf="email.errors.validateEmail">Email is invalid</p>

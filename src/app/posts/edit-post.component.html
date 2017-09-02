@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card-header">
     <h1 class="card-title">{{'edit-post'}} </h1>
-    <p>created at: {{post.createdAt}} &bull; {{post.createdBy}}</p>
-    <p><small>all fields marked with star are required.</small></p>
+    <h6 class="card-subtitle text-muted">created at: {{post.createdAt| date:'short'}} &bull; {{post.createdBy}}</h6>
+    <div class="text-muted"><small>all fields marked with star are required.</small></div>
   </div>
-  <div class="card-block">
+  <div class="card-body">
     <app-post-form [post]="post" (onSaved)="onPostUpdated($event)"></app-post-form>
   </div>
   <div class="card-footer">

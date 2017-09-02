@@ -1,11 +1,11 @@
-<div class="card">
+<div class="card my-2">
   <div class="card-header">
     <h1 class="card-title text-xs-center text-uppercase text-justify">
       {{post.title}}
     </h1>
-    <p class="text-xs-center text-muted"><small>{{post.createdAt|date:'short'}}</small></p>
+    <h6 class="card-subtitle text-xs-center text-muted"><small>{{post.createdAt|date:'short'}}</small></h6>
   </div>
-  <div class="card-block">
+  <div class="card-body">
     <p>
       {{post.content}}
     </p>
