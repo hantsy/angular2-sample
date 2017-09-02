@@ -1,18 +1,20 @@
-<div class="card my-2">
+<div class="card my-1">
   <div class="card-body bg-faded">
     <div class="row">
-      <div class="col-md-9">
-        <form class="form-inline">
-          <div class="form-group" (ngSubmit)="search()">
+      <div class="col-md-9 col-xs-12 mb-1">
+        <form (ngSubmit)="search()">
+          <div class="input-group" >
             <input type="text" name="q" class="form-control" [(ngModel)]="q" />
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-secondary">{{'go'}}</button>
+            </span>
           </div>
-          <button type="submit" class="btn btn-outline-info">{{'search'}}</button>
           <!--<button type="button" class="btn btn-outline-info" (click)="clearTerm()">{{'clear'}}</button>-->
         </form>
       </div>
-      <div class="col-md-3">
-        <span class="float-md-right">
-          <a class="btn btn-success" [routerLink]="['/posts', 'new']">new-post</a>
+      <div class="col-md-3 col-xs-12 mb-1">
+        <span class="ml-auto">
+          <a class="btn btn-success btn-block" [routerLink]="['/posts', 'new']">new-post</a>
         </span>
       </div>
     </div>
