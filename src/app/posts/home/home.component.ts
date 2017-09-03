@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Post } from './post.model';
-import { PostService } from './post.service';
+import { Post } from '../shared/post.model';
+import { PostService } from '../shared/post.service';
 import { Subscription } from 'rxjs/Subscription';
 
 @Component({
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./home.component.css']
 })
 export class PostsHomeComponent implements OnInit, OnDestroy {
-  q: string = '';
+  q = '';
   posts: Post[];
   sub: Subscription;
 

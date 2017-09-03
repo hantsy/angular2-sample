@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { ApiService } from '../core/api.service';
+import { ApiService } from '../../core/api.service';
 import { Post } from './post.model';
 import { Comment } from './comment.model';
 import { Observable } from 'rxjs/Observable';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PostService {
 
-  private path: string = '/posts';
+  private path = '/posts';
 
   constructor(private api: ApiService) { }
 
@@ -16,7 +16,7 @@ export class PostService {
     return this.api.get(`${this.path}`, term);
   }
 
-  getPost(id: number):Observable<Post> {
+  getPost(id: number): Observable<Post> {
     return this.api.get(`${this.path}/${id}`);
   }
 

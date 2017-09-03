@@ -3,10 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from '../core/auth.guard';
 
-import { PostsHomeComponent } from './home.component';
-import { NewPostComponent } from './new-post.component';
-import { EditPostComponent } from './edit-post.component';
-import { PostDetailsComponent } from './post-details.component';
+import { PostsHomeComponent } from './home/home.component';
+import { NewPostComponent } from './new-post/new-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home' },

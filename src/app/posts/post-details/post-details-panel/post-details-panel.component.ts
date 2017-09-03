@@ -1,13 +1,13 @@
 import { Component, OnInit, OnChanges, Input, SimpleChange } from '@angular/core';
 
-import { Post } from '../post.model';
+import { Post } from '../../shared/post.model';
 
 @Component({
-  selector: 'app-post-details-card',
-  templateUrl: './post-details-card.component.html',
-  styleUrls: ['./post-details-card.component.css']
+  selector: 'app-post-details-panel',
+  templateUrl: './post-details-panel.component.html',
+  styleUrls: ['./post-details-panel.component.css']
 })
-export class PostDetailsCardComponent implements OnInit, OnChanges {
+export class PostDetailsPanelComponent implements OnInit, OnChanges {
 
   @Input() post: Post;
 

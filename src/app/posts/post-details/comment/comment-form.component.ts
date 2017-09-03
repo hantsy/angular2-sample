@@ -1,9 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
-import { Comment } from '../comment.model';
-import { Post } from '../post.model';
-import { PostService } from '../post.service';
+import { Comment } from '../../shared/comment.model';
+import { Post } from '../../shared/post.model';
+import { PostService } from '../../shared/post.service';
 
 @Component({
   selector: 'app-comment-form',

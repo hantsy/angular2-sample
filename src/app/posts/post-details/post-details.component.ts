@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 
 import { Observable, Subscription} from 'rxjs/Rx';
-import { PostService } from './post.service';
-import { Post } from './post.model';
-import { Comment } from './comment.model';
+import { PostService } from '../shared/post.service';
+import { Post } from '../shared/post.model';
+import { Comment } from '../shared/comment.model';
 
 @Component({
   selector: 'app-post-details',

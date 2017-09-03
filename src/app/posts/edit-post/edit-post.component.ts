@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { Post } from './post.model';
-import { PostService } from './post.service';
+import { Post } from '../shared/post.model';
+import { PostService } from '../shared/post.service';
 
 @Component({
   selector: 'app-edit-post',

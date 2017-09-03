@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 
-import { Post } from '../post.model';
-import { Comment } from '../comment.model';
+import { Post } from '../../shared/post.model';
+import { Comment } from '../../shared/comment.model';
 
 
 @Component({

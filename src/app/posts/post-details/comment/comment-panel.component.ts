@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../post.model';
-import { Comment } from '../comment.model';
-import { PostService } from '../post.service';
+import { Post } from '../../shared/post.model';
+import { Comment } from '../../shared/comment.model';
+import { PostService } from '../../shared/post.service';
 
 @Component({
   selector: 'app-comment-panel',
