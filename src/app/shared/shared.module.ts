@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule} from '@ngx-translate/core';
 import { ShowAuthedDirective } from './show-authed.directive';
 
@@ -17,7 +17,7 @@ import { EmailValidatorDirective } from './email-validator.directive';
     FormsModule,
     ReactiveFormsModule,
     //3rd party modules
-    NgbModule,
+    //NgbModule,
     TranslateModule
   ],
   declarations: [
@@ -30,7 +30,7 @@ import { EmailValidatorDirective } from './email-validator.directive';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule,
+    //NgbModule,
     ShowAuthedDirective,
     Nl2brPipe,
     EmailValidatorDirective,

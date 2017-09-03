@@ -19,7 +19,6 @@ import {
   MissingTranslationHandlerParams
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -43,7 +42,6 @@ export class MyMissingTranslationHandler implements MissingTranslationHandler {
         deps: [Http]
       }
     }),
-    NgbModule.forRoot(),
     CoreModule,
     AppRoutingModule,
     HomeModule,
